@@ -1,0 +1,47 @@
+EXEMPLO DE CENARIOS DE TESTES USANDO BDD
+Baseado no sistema https://blazedemo.com/
+
+Cenário: Cadastrar novo usuário
+
+Dado acesso a página de registro
+
+Quando informo os dados pessoais obrigatórios
+
+Então sou redirecionado para página  pesquisa de voos
+
+.................................................................................................................................................
+
+
+Cenário:  Acesso ao sistema 
+
+Dado acesso a página de login
+
+Quando informo os dados de acesso obrigatórios (NÃO PRECISA INFORMAR QUAIS SÃO OS CAMPOS, POIS PODE MUDAR COM O TEMPO. ESTA INFORMAÇÃO VAI ESTAR NA DOCUMENTAÇÃO)
+
+Então sou redirecionado para a página privada de afiliados do site
+.................................................................................................................................................
+
+Cenário: Esqueci minha senha
+Dado que acesso a página reset de senha
+Quando informo os campos obrigatórios
+Então recebo um e-mail com um link para dar prosseguimento ao reset de senha.
+.................................................................................................................................................
+
+
+Cenário: Pesquisar Voos.
+Dado que realizo os passos do cenário acesso ao sistema
+Quando informo os campos obrigatórios para a pesquisa
+Então irá retornar os voos disponíveis
+....................................................................................................................................................
+
+Cenário: Escolher Voos
+Dado que realizo os passos do cenário pesquisar Voos
+Quando seleciono o voo disponível
+Então sou direcionado para página de compra.
+....................................................................................................................................................
+
+Cenário: Compra de voo
+Dado que realizo os passos do cenário escolher Voos
+Quando informo os dados obrigatórios para pagamento
+Então a compra e realizada com sucesso
+	E sou direcionado para página de confirmação de compra.
