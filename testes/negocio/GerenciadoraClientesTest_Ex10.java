@@ -23,7 +23,9 @@ public class GerenciadoraClientesTest_Ex10 {
 	private int idCLiente01 = 1;
 	private	int idCLiente02 = 2;
 	
-	@Before
+	
+	
+	@Before // Anotação before executa classe abaixo a antes de cada execução de um metodo de teste (como se fosse um construtor)
 	public void setUp() {
 	
 		/* ========== Montagem do cen�rio ========== */
@@ -40,7 +42,8 @@ public class GerenciadoraClientesTest_Ex10 {
 		gerClientes = new GerenciadoraClientes(clientesDoBanco);
 	}
 
-	@After
+	@After // Anotação after executa a classe abaixo de depois de cada execução do teste
+	// USADA PARA "LIMPAR O CONTEUDO ADICIONADO NO TESTE ANTERIOR PARA NAO TER INTEREFERENCIA"
 	public void tearDown() {
 		gerClientes.limpa();
 	}
@@ -210,13 +213,15 @@ public class GerenciadoraClientesTest_Ex10 {
 	 */
 	@Test
 	public void testClienteIdadeAceitavel_05() throws IdadeNaoPermitidaException {
-		
+		// VERIFICA IDADE INVALIDA
 		/* ========== Montagem do Cen�rio ========== */		
 		Cliente cliente = new Cliente(1, "Gustavo", 66, "guga@gmail.com", 1, true);
 		/* ========== Execu��o ========== */
 		try {
 			gerClientes.validaIdade(cliente.getIdade());
-			fail();
+			
+			//SE CAIR NO FAIL E PQ E UMA IDADE VALIDA, NAO DISPAROU A EXCESSAO O VALIDA IDADE, ENTAO TEM QUE FORÇA O ERRO DO TESTE
+			fail();  //  *** FORÇA O TESTE A DAR ERRO, SE CHEGAR NESTA LINHA DA ERRO NO TESTE
 		} catch (Exception e) {
 			/* ========== Verifica��es ========== */
 			assertThat(e.getMessage(), is(IdadeNaoPermitidaException.MSG_IDADE_INVALIDA));

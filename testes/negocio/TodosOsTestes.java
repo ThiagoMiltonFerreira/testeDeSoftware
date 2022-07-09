@@ -4,6 +4,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+
+
+// Executa todos as classes de testes informadas a partir desta classe.
 @RunWith(Suite.class)
 @SuiteClasses({ GerenciadoraClientesTest_Ex1.class, GerenciadoraClientesTest_Ex2.class,
 	GerenciadoraClientesTest_Ex3.class, GerenciadoraClientesTest_Ex4.class, GerenciadoraClientesTest_Ex5.class,

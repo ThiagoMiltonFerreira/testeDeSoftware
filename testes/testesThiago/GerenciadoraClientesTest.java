@@ -50,17 +50,28 @@ public class GerenciadoraClientesTest {
 	@Test
 	public void AdicionarClienteTest() {
 		
+		
+		//================ Montagem do cenario ==============
+		
 		// Cria uma lista do tipo cliente
 		List<Cliente> clientesDoBanco = new ArrayList();
 		
 		// Passa esta lista vazia como parametro do construtor para iniciar a base de cliente
 		GerenciadoraClientes gercliente = new GerenciadoraClientes(clientesDoBanco);
+		
+		
+		//=============== Execução =====================
+		
 		//Seta os valores para o cliente
 		Cliente cliente = new Cliente(2, "Thauane F", 16, "thauane@gmail.com", 11, false);
+		
 		//Adiciona o cliente passando a instancia de cliente
 		gercliente.adicionaCliente(cliente);
 		
 		
+		//=============== Verificação==================
+		
+		//Verifica os valores retornados do metodo
 		assertThat(gercliente.pesquisaCliente(2).getId(), is(2));
 		assertThat(gercliente.pesquisaCliente(2).getEmail(), is("thauane@gmail.com"));
 		
@@ -75,20 +86,17 @@ public class GerenciadoraClientesTest {
 		
 		// Passa esta lista vazia como parametro do construtor para iniciar a base de cliente
 		GerenciadoraClientes gercliente = new GerenciadoraClientes(clientesDoBanco);
+		
 		//Seta os valores para o cliente
 		Cliente cliente = new Cliente(2, "Thauane F", 16, "thauane@gmail.com", 11, false);
+		
 		//Adiciona o cliente passando a instancia de cliente
 		gercliente.adicionaCliente(cliente);
     	
     	// Verifica se o valor retornado pelo metodo remove cliente e true (foi removido)
 		assertTrue(gercliente.removeCliente(2) == true);
-    	//removerCliente.removeCliente(1);
     	
     	
     }
-	
-	
-	
-	
-	
+
 }
